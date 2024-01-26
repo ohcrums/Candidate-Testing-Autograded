@@ -50,23 +50,30 @@ function gradeQuiz(candidateAnswers) {
   //   console.log("Incorrect")
   // }
   console.log("\nTest Results")
+  
+  let totalCorrect = [];
+  let totalWrong = []; 
+
   for (let i = 0; i < correctAnswers.length; i++) {
     let result;
-    if (candidateAnswers[i] == correctAnswers[i]) {
+    if (candidateAnswers[i].toLowerCase() == correctAnswers[i].toLowerCase()) {
       result = "Correct!";
+      totalCorrect.push(`Question ${Number(i)} ${result}`);
+
     } else {
       result = "Incorrect."
+      totalWrong.push(`Question ${Number(i)} ${result}`);
     }
-
-    console.log(`
-    Question 1: ${questions[i]}
-    Your Answer: ${candidateAnswers[i]}
-    Correct Answer: ${correctAnswers[i]}
-    Result: ${result}`)
+    // console.log(`
+    // Question 1: ${questions[i]}
+    // Your Answer: ${candidateAnswers[i]}
+    // Correct Answer: ${correctAnswers[i]}
+    // Result: ${result}`)
   }
 
   let grade;  //TODO 3.2 use this variable to calculate the candidates score.
 
+  grade = ((totalCorrect.length / correctAnswers.length ) * 100);
 
   return grade;
 }
