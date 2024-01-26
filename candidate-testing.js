@@ -64,16 +64,27 @@ function gradeQuiz(candidateAnswers) {
       result = "Incorrect."
       totalWrong.push(`Question ${Number(i)} ${result}`);
     }
-    // console.log(`
-    // Question 1: ${questions[i]}
-    // Your Answer: ${candidateAnswers[i]}
-    // Correct Answer: ${correctAnswers[i]}
-    // Result: ${result}`)
+    console.log(`
+    Question ${i + 1}: "${questions[i]}"
+    Your Answer: ${candidateAnswers[i]}
+    Correct Answer: ${correctAnswers[i]}
+    Result: ${result}`)
+
   }
-
+  
   let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-
   grade = ((totalCorrect.length / correctAnswers.length ) * 100);
+  let gradeAnnounce = `Final Result: ${grade}% correct.`
+
+
+  console.log(`\nCalculating...\n${totalCorrect.length} correct answers out of ${correctAnswers.length}.`)
+  if (grade > 70) {
+    console.log(`\n------------------------------\n${gradeAnnounce}\nYou pass! :)\n------------------------------\n`)
+  } else {
+    console.log(`\n------------------------------\n${gradeAnnounce}\nBetter luck next time :(\n------------------------------\n`)
+  }
+  
+  
 
   return grade;
 }
