@@ -49,7 +49,7 @@ function gradeQuiz(candidateAnswers) {
     }
     // "live" grading output using variables from above if statement.
     console.log(`
-    Question ${i + 1}: "${questions[i]}"
+    Question ${i + 1}: "${questions[i].slice(0, -1)}"
     Your Answer: ${candidateAnswers[i]}
     Correct Answer: ${correctAnswers[i]}
     Result: ${result}`)
